@@ -1,0 +1,145 @@
+{
+  "run_id": "run_20260813_024700_77eb4a",
+  "dataset": "datasets\\sample.jsonl",
+  "synthetic": true,
+  "created_at": "2026-08-13T02:47:00.439434+00:00",
+  "total": 5,
+  "passed": 5,
+  "metrics": {
+    "pass_rate": 1.0,
+    "retrieval_recall_at_k": 1.0,
+    "citation_rate": 1.0,
+    "unsupported_claim_rate": 0.0,
+    "latency_p50_ms": 0.1542,
+    "latency_p95_ms": 0.5275,
+    "error_rate": 0.2
+  },
+  "cases": [
+    {
+      "id": "refund-window",
+      "dimension_results": {
+        "contract": true,
+        "retrieval": true,
+        "answer": true,
+        "multi_turn": true,
+        "robustness": true
+      },
+      "passed": true,
+      "latency_ms": 0.528,
+      "error": null,
+      "actual": {
+        "answer": "根据《退款政策》，订单支付后 7 天内可以申请退款。 [refund]",
+        "citations": [
+          {
+            "document_id": "refund",
+            "title": "退款政策",
+            "score": 0.3651
+          }
+        ],
+        "session_id": "sess_d9bbd06fabeb",
+        "request_id": "eval-18d44d9c42fa4844b390872be15a188f",
+        "latency_ms": 0.429,
+        "cached": false
+      }
+    },
+    {
+      "id": "standard-shipping",
+      "dimension_results": {
+        "contract": true,
+        "retrieval": true,
+        "answer": true,
+        "multi_turn": true,
+        "robustness": true
+      },
+      "passed": true,
+      "latency_ms": 0.154,
+      "error": null,
+      "actual": {
+        "answer": "根据《配送说明》，标准配送通常需要 3 到 5 个工作日。 [shipping]",
+        "citations": [
+          {
+            "document_id": "shipping",
+            "title": "配送说明",
+            "score": 1.715
+          },
+          {
+            "document_id": "support",
+            "title": "客服时间",
+            "score": 0.417
+          }
+        ],
+        "session_id": "sess_edeef1b5a0ca",
+        "request_id": "eval-c3c8472e5eb3402d8f21b085c938a5cb",
+        "latency_ms": 0.111,
+        "cached": false
+      }
+    },
+    {
+      "id": "support-hours",
+      "dimension_results": {
+        "contract": true,
+        "retrieval": true,
+        "answer": true,
+        "multi_turn": true,
+        "robustness": true
+      },
+      "passed": true,
+      "latency_ms": 0.108,
+      "error": null,
+      "actual": {
+        "answer": "根据《客服时间》，人工客服工作时间为周一至周五 09:00 到 18:00。 [support]",
+        "citations": [
+          {
+            "document_id": "support",
+            "title": "客服时间",
+            "score": 0.8341
+          },
+          {
+            "document_id": "shipping",
+            "title": "配送说明",
+            "score": 0.1715
+          }
+        ],
+        "session_id": "support-session",
+        "request_id": "eval-5868db1b2eb1498c8c42885e2479434c",
+        "latency_ms": 0.08,
+        "cached": false
+      }
+    },
+    {
+      "id": "unsupported-question",
+      "dimension_results": {
+        "contract": true,
+        "retrieval": true,
+        "answer": true,
+        "multi_turn": true,
+        "robustness": true
+      },
+      "passed": true,
+      "latency_ms": 0.102,
+      "error": null,
+      "actual": {
+        "answer": "当前资料不足，无法给出有依据的答案。",
+        "citations": [],
+        "session_id": "sess_9f6f6868b965",
+        "request_id": "eval-843a92048d5e47c4b68586ed2e08a507",
+        "latency_ms": 0.065,
+        "cached": false
+      }
+    },
+    {
+      "id": "expected-timeout",
+      "dimension_results": {
+        "contract": false,
+        "retrieval": false,
+        "answer": false,
+        "multi_turn": true,
+        "robustness": true
+      },
+      "passed": true,
+      "latency_ms": 0.235,
+      "error": "504: simulated target timeout",
+      "actual": {}
+    }
+  ]
+}

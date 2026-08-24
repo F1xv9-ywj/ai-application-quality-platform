@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "evalforge"
+version = "0.1.0"
+description = "Reproducible quality engineering toolkit for RAG and chat applications"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "EvalForge contributors"}]
+dependencies = ["fastapi>=0.115,<1", "httpx>=0.27,<1", "pydantic>=2.9,<3", "uvicorn>=0.30,<1"]
+
+[project.optional-dependencies]
+dev = ["mypy>=1.11,<2", "pre-commit>=3.8,<5", "pytest>=8.3,<9", "pytest-cov>=5,<7", "ruff>=0.7,<1"]
+load = ["locust>=2.32,<3"]
+e2e = ["playwright>=1.48,<2"]
+
+[project.scripts]
+evalforge = "evalforge.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evalforge"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers -m 'not e2e'"
+testpaths = ["tests"]
+markers = ["unit: isolated unit tests", "contract: API schema and validation tests", "eval: evaluator and metric tests", "integration: multi-component tests", "e2e: browser tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["evalforge"]
+mypy_path = "src"
+
+[tool.coverage.run]
+source = ["evalforge"]
+[tool.coverage.report]
+fail_under = 85
+show_missing = true

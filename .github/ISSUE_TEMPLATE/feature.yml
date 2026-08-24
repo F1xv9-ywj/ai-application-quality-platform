@@ -1,0 +1,12 @@
+name: Feature request
+description: Propose a scoped improvement
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes: {label: Problem, description: What quality-engineering problem should be solved?}
+    validations: {required: true}
+  - type: textarea
+    id: acceptance
+    attributes: {label: Acceptance criteria}
+    validations: {required: true}
