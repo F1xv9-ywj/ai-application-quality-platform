@@ -1,0 +1,5 @@
+{"id":"refund-window","question":"退款期限是多久？","expected_answer":"7 天","expected_doc_ids":["refund"],"min_recall":1.0}
+{"id":"standard-shipping","question":"标准配送需要几个工作日？","expected_answer":"3 到 5 个工作日","expected_doc_ids":["shipping"],"min_recall":1.0}
+{"id":"support-hours","question":"人工客服几点上班？","expected_answer":"09:00","expected_doc_ids":["support"],"min_recall":1.0,"session_id":"support-session"}
+{"id":"unsupported-question","question":"会员积分会过期吗？","expected_answer":"资料不足","expected_doc_ids":[],"min_recall":0.0}
+{"id":"expected-timeout","question":"模拟慢请求","expected_answer":"","expected_doc_ids":[],"simulate":"timeout","timeout_ms":5,"expect_error":true}

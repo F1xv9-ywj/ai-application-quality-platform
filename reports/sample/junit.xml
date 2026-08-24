@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="EvalForge" tests="5" failures="0"><testcase name="refund-window" time="0.000528" /><testcase name="standard-shipping" time="0.000154" /><testcase name="support-hours" time="0.000108" /><testcase name="unsupported-question" time="0.000102" /><testcase name="expected-timeout" time="0.000235" /></testsuite>

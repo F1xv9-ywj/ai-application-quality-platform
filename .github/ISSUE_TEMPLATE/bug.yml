@@ -1,0 +1,19 @@
+name: Bug report
+description: Report a reproducible defect
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes: {value: "请勿提交 API keys 或敏感数据。"}
+  - type: textarea
+    id: reproduction
+    attributes: {label: Reproduction, description: 最小复现步骤}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: Expected behavior}
+    validations: {required: true}
+  - type: input
+    id: environment
+    attributes: {label: Environment, placeholder: "Python 3.11 / Windows 11"}
+    validations: {required: true}

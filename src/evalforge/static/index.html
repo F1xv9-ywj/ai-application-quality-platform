@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EvalForge · AI 质量评测</title><link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header><a class="brand" href="#"><span class="logo">EF</span>EvalForge</a><nav><button class="active">总览</button><button>测试运行</button><button>数据集</button><button>报告</button></nav><div class="header-actions"><span class="sample">SAMPLE DATA</span><button class="avatar" aria-label="账户">QE</button></div></header>
+<div class="shell">
+<aside><h2>运行配置</h2><label>评测目标<select id="target"><option value="local">Deterministic Local RAG</option><option value="remote">OpenAI-compatible Remote</option></select></label><label>数据集<select id="dataset"><option value="datasets/sample.jsonl">sample.jsonl (synthetic)</option></select></label><label>Top K<input id="top-k" type="number" min="1" max="10" value="3"></label><details><summary>Remote 设置</summary><label>Base URL<input id="base-url" placeholder="https://.../v1"></label><label>Model<input id="model" value="demo-model"></label></details><button id="run" class="run"><span>▶</span> 运行评测</button><p id="run-state">无需 API Key 即可运行 local demo</p></aside>
+<main>
+  <section class="titlebar"><div><h1>质量概览</h1><p>可重复、可审计的 AI application evaluation</p></div><button id="refresh" class="secondary">↻ 刷新</button></section>
+  <section id="metrics" class="metrics">
+    <article class="pass-card"><div><h3>Overall Pass Rate</h3><strong id="pass-rate">—</strong><small id="pass-count">尚未运行</small></div><div class="ring" id="ring"><span>—</span></div></article>
+    <article><h3>P95 Latency</h3><strong id="p95">—</strong><small>目标 ≤ 500 ms</small><div class="spark">⌁⌁⌁⌁⌁</div></article>
+    <article><h3>Retrieval Recall@K</h3><strong id="recall">—</strong><small>目标 ≥ 0.80</small><div class="spark">⌁⌁⌁⌁⌁</div></article>
+    <article><h3>Unsupported Claim Rate</h3><strong id="unsupported">—</strong><small>目标 ≤ 5%</small><div class="spark">⌁⌁⌁⌁⌁</div></article>
+  </section>
+  <section class="grid">
+    <article class="panel trend"><div class="panel-head"><h2>维度通过率</h2><select id="dimension-filter"><option value="all">全部维度</option><option>contract</option><option>retrieval</option><option>answer</option><option>multi_turn</option><option>robustness</option></select></div><div id="bars" class="bars"><p class="empty">运行 sample eval 后展示结果</p></div></article>
+    <article class="panel"><div class="panel-head"><h2>最近测试运行</h2><span id="run-total">0 runs</span></div><div class="table-wrap"><table><thead><tr><th>运行 ID</th><th>数据集</th><th>Pass Rate</th><th>状态</th></tr></thead><tbody id="runs"><tr><td colspan="4" class="empty">暂无运行记录</td></tr></tbody></table></div></article>
+    <article class="panel wide"><div class="panel-head"><h2>测试用例</h2><span>sample / synthetic</span></div><div class="table-wrap"><table><thead><tr><th>Case ID</th><th>Contract</th><th>Retrieval</th><th>Answer</th><th>Robustness</th><th>Latency</th></tr></thead><tbody id="cases"><tr><td colspan="6" class="empty">运行后显示逐 case 证据</td></tr></tbody></table></div></article>
+  </section>
+</main></div><div id="toast" role="status"></div><script src="/static/app.js"></script>
+</body></html>
